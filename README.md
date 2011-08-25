@@ -14,7 +14,7 @@ gem install recursive_replace
 
 ```bash
 echo "bad bad good" > test
-recursive_replace "bad" "good" # replaced bad with good
+recursive_replace bad good # replaced bad with good
 cat test # => good good good
 rm test
 ```
@@ -23,7 +23,7 @@ rm test
 
 ```bash
 echo "<%= @object[:bad] %>" > test
-recursive_replace "<%= @object[:bad] %>" "<%= @new_object[:good] %>"
+recursive_replace <%= @object[:bad] %> <%= @new_object[:good] %>
 cat test # => good good good
 rm test
 ```
