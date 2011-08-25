@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+
+# Recursive String Replacement, starting in current dir.
+# Author: Dave Hulihan
+
+if ARGV.length < 2
+        puts "Usage: recursive_replace [string1] [string2]"
+        exit 0
+end
+
+@string1 = ARGV[0]
+@string2 = ARGV[1]
+
+puts "Replacing #{@string1} with #{@string2}..."
+
+@string1 = Regexp.escape(@string1) # escape any special characters
+@string2 = Regexp.escape(@string2)
+
+exec("find ./ -type f | xargs sed -i 's/#{@string1}/#{@string2}/g' && echo f)
+
+puts "Done!"
