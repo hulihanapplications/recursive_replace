@@ -25,8 +25,8 @@ rm test
 ### Ruby
 
 ```bash
-echo \<%= @object[:bad] %\> > test
-recursive_replace \<%= @object[:bad] %\> \<%= @new_object[:good] %\> 
+echo "<%= @object[:bad] %>" > test # use quotes when using special characters 
+recursive_replace "<%= @object[:bad] %>" "<%= @new_object[:good] %>" 
 cat test # => <%= @new_object[:good] %>
 rm test
 ```
