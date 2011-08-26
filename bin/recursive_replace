@@ -6,15 +6,15 @@ require File.expand_path(File.join("..", "..", "lib", "recursive_replace"), __FI
 # Author: Dave Hulihan
 
 if ARGV.length < 2
-  puts "Usage: recursive_replace [string1] [string2]"
-  exit 0
+  puts "Usage: recursive_replace [original] [replacement] [file or dir]"
+  exit 0 
 end
 
-@string1 = ARGV[0]
-@string2 = ARGV[1]
+@original = ARGV[0]
+@replacement = ARGV[1]
 @path 	 = ARGV[2] 
 
-puts "Replacing #{@string1} with #{@string2} in #{@path.nil? ? Dir.pwd : @path}"
-RecursiveReplace.go(@string1, @string2, @path)
+puts "Replacing #{@original} with #{@replacement} in #{@path.nil? ? Dir.pwd : @path}"
 
-puts "Done!"
+RecursiveReplace.replace(@original, @replacement, :path => @path, :verbose => true)
+
