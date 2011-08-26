@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Dave Hulihan"]
-  s.date = %q{2011-08-25}
+  s.date = %q{2011-08-26}
   s.description = %q{TODO: longer description of your gem}
   s.email = %q{dave@hulihanapplications.com}
   s.executables = ["recursive_replace"]
@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "bin/recursive_replace",
+    "recursive_replace.gemspec",
     "spec/fixtures/file.erb",
     "spec/fixtures/file.rb",
     "spec/lib/recursive_replace_spec.rb",
