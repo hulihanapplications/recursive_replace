@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Dave Hulihan", "Hulihan Applications"]
   s.date = %q{2011-08-26}
-  s.description = %q{A ruby gem for recursively replacing text in multiple files and directories. Escapes special character, so you can replace special programming characters & syntax.}
+  s.description = %q{recursive_replace is a ruby gem for recursively replacing text in multiple files and directories. It also escapes special characters, so you can replace code syntax and special characters easily.}
   s.email = %q{dave@hulihanapplications.com}
   s.executables = ["recursive_replace"]
   s.extra_rdoc_files = [
@@ -25,9 +25,14 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "bin/recursive_replace",
+    "lib/recursive_replace.rb",
     "recursive_replace.gemspec",
-    "spec/fixtures/file.erb",
-    "spec/fixtures/file.rb",
+    "spec/fixtures/test/bad",
+    "spec/fixtures/test/file",
+    "spec/fixtures/test/good",
+    "spec/fixtures/test/subdirectory/file",
+    "spec/fixtures/test/syntax/file.erb",
+    "spec/fixtures/test/syntax/file.rb",
     "spec/lib/recursive_replace_spec.rb",
     "spec/spec_helper.rb",
     "test/helper.rb",
@@ -37,7 +42,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.7.2}
-  s.summary = %q{Recursive Text Replacement}
+  s.summary = %q{Recursive Text Replacement for Programming Languages}
 
   if s.respond_to? :specification_version then
     s.specification_version = 3

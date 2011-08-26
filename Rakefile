@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "recursive_replace"
   gem.homepage = "http://github.com/hulihanapplications/recursive_replace"
   gem.license = "MIT"
-  gem.summary = %Q{Recursive Text Replacement}
-  gem.description = %Q{A ruby gem for recursively replacing text in multiple files and directories. Escapes special character, so you can replace special programming characters & syntax.}
+  gem.summary = %Q{Recursive Text Replacement for Programming Languages}
+  gem.description = %Q{recursive_replace is a ruby gem for recursively replacing text in multiple files and directories. It also escapes special characters, so you can replace code syntax and special characters easily.}
   gem.email = "dave@hulihanapplications.com"
   gem.authors = ["Dave Hulihan", "Hulihan Applications"]
   # dependencies defined in Gemfile

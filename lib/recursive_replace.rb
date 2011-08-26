@@ -18,9 +18,9 @@ class RecursiveReplace
   end 
   
   def self.replace_in_file(original, replacement, options = {}) # do the actual replacing in a single file
-    raise ScriptError, "options[:path] not defined" if options[:path].nil?
-    raise LoadError, "#{path} not found" unless File.exists?(options[:path])
-    raise LoadError, "#{path} is a directory" if File.directory?(options[:path])
+    raise ScriptError, "options[:path] not defined" if options[:path].nil? 
+    raise LoadError, "#{options[:path]} not found" unless File.exists?(options[:path])
+    raise LoadError, "#{options[:path]} is a directory" if File.directory?(options[:path])
     
     # Set Defaults
     options[:verbose] = false if options[:verbose].nil?
