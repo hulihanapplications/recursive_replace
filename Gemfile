@@ -7,6 +7,7 @@ source "http://rubygems.org"
 # Include everything needed to run rake, tests, features, etc.
 
 gem "colored" 
+gem "thor"
 
 group :development do
   gem "shoulda", ">= 0"
