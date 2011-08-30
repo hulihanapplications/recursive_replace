@@ -9,7 +9,7 @@ class RecursiveReplace
     #puts files.inspect
     if options[:path].nil? || File.directory?(options[:path])  # recursively inside directory
       for file in files_inside(options[:path])
-        options[:path] = file
+        options[:path] = file        
         replace_in_file(original, replacement, options) unless File.directory?(file)
       end
     else # single file
@@ -46,7 +46,7 @@ class RecursiveReplace
   end
   
   def self.files_inside(path) # get the working directory to start in
-    path.nil? ? Dir.glob(File.join("**", "*")) : Dir.glob(File.join(File.dirname(path), "**", "*"))    
+    path.nil? ? Dir.glob(File.join("**", "*")) : Dir.glob(File.join(path, "**", "*"))    
   end
   
 end

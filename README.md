@@ -35,6 +35,6 @@ rm test
 
 ```ruby
 require "recursive_replace"
-file = File.join("home", "bob", "Documents)
+file = File.join("home", "bob", "Documents")
 RecursiveReplace.replace("bad", "good", :path => file)
 ```
