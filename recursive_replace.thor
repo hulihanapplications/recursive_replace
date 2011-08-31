@@ -7,6 +7,7 @@ class RecursiveReplace < Thor
   include ::RecursiveReplaceSupport
   
   #method_options :dry_run => false, :aliases => "-d"
+  method_options :verbose => true
   map "-v" => :version
   map "--version" => :version
 
@@ -15,10 +16,10 @@ class RecursiveReplace < Thor
   
   #argument :original, :required => true
   #argument :replacement, :required => true 
-  #argument :original, :required => true, :banner => "original", :for => :replace 
-  #argument :replacement, :required => true, :banner => "replacement", :for => :replace
-  #argument :path, :optional => true, :banner => "path", :for => :replace
-  method_option :verbose => true
+  #argument :original, :required => true, :for => :replace  
+  #argument :replacement, :required => true, :for => :replace
+  #argument :path, :optional => true, :for => :replace
+
   desc "replace", "Replace first string with second string. Path is optional"   
   def replace(original, replacement, path)
     if original.nil? || replacement.nil? #ARGV.length < 2
@@ -26,10 +27,11 @@ class RecursiveReplace < Thor
       exit 0 
     end    
     
-    puts "Replacing #{original} with #{replacement} in #{path.nil? ? Dir.pwd : path}"        
+    puts "Replacing #{original} with #{replacement} in #{path.nil? ? Dir.pwd : path}"
+        
   end
   
-  method_option :verbose => false
+  #argument :cheese, :for => :version 
   desc "version", "get the current version"
   def version
      puts File.read(File.expand_path(File.join("..", "..", "VERSION"), __FILE__))

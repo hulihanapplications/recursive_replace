@@ -1,16 +1,12 @@
 #!/usr/bin/env ruby
-require File.expand_path(File.join("..", "..", "lib", "recursive_replace"), __FILE__)
-
 # Recursive String Replacement, starting in current dir.
 # Author: Dave Hulihan
 
+require File.expand_path(File.join("..", "..", "lib", "recursive_replace"), __FILE__)
 
-
-@original = ARGV[0]
-@replacement = ARGV[1]
-@path 	 = ARGV[2] 
-
-
-#RecursiveReplace.replace(@original, @replacement, :path => @path, :verbose => true)
-RecursiveReplace.start
+if ARGV.empty?
+	RecursiveReplace.new.replace
+else
+	RecursiveReplace.start
+end 
 
