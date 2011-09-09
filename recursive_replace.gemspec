@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{recursive_replace}
-  s.version = "0.1.1"
+  s.version = "0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Dave Hulihan", "Hulihan Applications"]
-  s.date = %q{2011-08-30}
+  s.date = %q{2011-09-09}
   s.description = %q{recursive_replace is a ruby gem for recursively replacing text in multiple files and directories. It also escapes special characters, so you can replace code syntax and special characters easily.}
   s.email = %q{dave@hulihanapplications.com}
   s.executables = ["recursive_replace"]
@@ -27,8 +27,10 @@ Gem::Specification.new do |s|
     "bin/recursive_replace",
     "lib/recursive_replace.rb",
     "recursive_replace.gemspec",
+    "spec/fixtures/test/back_slash",
     "spec/fixtures/test/bad",
     "spec/fixtures/test/file",
+    "spec/fixtures/test/forward_slash",
     "spec/fixtures/test/good",
     "spec/fixtures/test/subdirectory/file",
     "spec/fixtures/test/syntax/file.erb",
