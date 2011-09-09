@@ -11,7 +11,7 @@
 gem install recursive_replace
 ```
 
-## Usage
+## Examples
 
 ### From Console/Terminal
 
@@ -19,31 +19,23 @@ gem install recursive_replace
 recursive_replace [original] [replacement] [optional_path] 
 ```
 
-```bash
-echo "bad bad good" > test
-recursive_replace bad good # replaced bad with bad
-cat test # => good good good
-rm test
-```
-
-### Ruby
+Replace *foo* with *bar* in current directory and its subdirectories: 
 
 ```bash
-echo "<%= @object[:bad] %>" > test # use quotes when using special characters 
-recursive_replace "<%= @object[:bad] %>" "<%= @new_object[:good] %>" 
-cat test # => <%= @new_object[:good] %>
-rm test
+recursive_replace "foo" "bar"
 ```
 
-### Slashes
-
-#### Replacing a forward slash
+Replace *foo* with *bar* in a specific file: 
 
 ```bash
-recursive_replace "/" "_" somedirectory/ 
+recursive_replace "foo" "bar" file
 ```
 
-#### Replacing a backslash
+Replace erb syntax:
+
+```bash
+recursive_replace "<%= @object[:foo] %>" "<%= @new_object[:bar] %>" 
+```
 
 Replacing a backslash is the only time you'll actually need to escape an input character.  
 
