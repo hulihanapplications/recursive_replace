@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe RecursiveReplace do 
-  describe "go" do
+  describe "replace" do
     before(:each) do
       # create test dir
       @test_dir_fixture = File.expand_path("../../fixtures/test", __FILE__)
@@ -28,19 +28,37 @@ describe RecursiveReplace do
       File.read(path).should == "bad"
     end
     
-    describe "erb" do 
-      it "should replace erb code fine" do 
-        original = "<%= print @object[:symbol] %>"
-        replacement = "<%= puts @new_object[:new_symbol] %>"        
-        path = File.join(@test_dir, "syntax", "file.erb")
-        File.read(path).should == original
-        described_class.replace(original, replacement, :path => path)
-        File.read(path).should == replacement       
-      end
+    it "should replace forward slashes" do 
+       path = File.join(@test_dir, "forward_slash")
+       original = "string/with/forwardslashes"
+       File.read(path).should == original  
+       described_class.replace("/", "_", :path => path)
+       File.read(path).should == "string_with_forwardslashes"     
+    end        
+
+    it "should replace backslashes" do 
+       path = File.join(@test_dir, "back_slash")
+       original = "string\\with\\backslashes"
+       File.read(path).should == original  
+       described_class.replace("\\", "_", :path => path)
+       File.read(path).should == "string_with_backslashes"     
+    end  
+      
+    context "syntax" do 
+      describe "erb" do 
+        it "should replace erb code fine" do 
+          original = "<%= print @object[:symbol] %>"
+          replacement = "<%= puts @new_object[:new_symbol] %>"        
+          path = File.join(@test_dir, "syntax", "file.erb")
+          File.read(path).should == original
+          described_class.replace(original, replacement, :path => path)
+          File.read(path).should == replacement       
+        end
+      end      
     end
+
     
     context "console" do
-      
     end    
   end
 end

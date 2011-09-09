@@ -25,8 +25,8 @@ class RecursiveReplace
     # Set Defaults
     options[:verbose] = false if options[:verbose].nil?
     
-    original = Regexp.escape(original) # escape any special characters
-    replacement = Regexp.escape(replacement)
+    original = prepare(original) # escape any special characters
+    replacement = prepare(replacement)
     
     results = system("sed -i 's/#{original}/#{replacement}/g' #{options[:path]}") 
     puts "success".green + "\t" + INDENTATION + print_path(options[:path]) if !File.directory?(options[:path]) && options[:verbose]
@@ -49,4 +49,10 @@ class RecursiveReplace
     path.nil? ? Dir.glob(File.join("**", "*")) : Dir.glob(File.join(path, "**", "*"))    
   end
   
+  def self.prepare(string) # prepare string for use in replacement: escape, etc.
+    prepared = Regexp.escape(string)
+    prepared = prepared.sub("/", "\\/") # prepend escape characted forward slash with since it will be be used with sed in shell 
+    #print "Postprepare #{string} => #{prepared}"
+    return prepared
+  end
 end
