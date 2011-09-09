@@ -50,3 +50,13 @@ require "recursive_replace"
 file = File.join("home", "bob", "Documents")
 RecursiveReplace.replace("bad", "good", :path => file)
 ```
+
+## Testing
+
+Want to add a test to see how recursive_replace performs with a specific situation or programming language? Pull the recursive_replace and run its rspec testing suite:
+
+```bash
+git clone git://github.com/hulihanapplications/recursive_replace.git
+cd recursive_replace
+rspec spec/
+```
